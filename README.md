@@ -1,16 +1,59 @@
 # 🛡️ Simulação de Ataque de Brute Force (Pentest Lab)
 ### Ferramentas: Kali Linux | Medusa | Protocolos: FTP, SMB, HTTP
 
+## 📌 Resumo Executivo
+
+Este projeto simula ataques de força bruta em um ambiente controlado utilizando Kali Linux e Medusa, com foco na identificação de vulnerabilidades em autenticação.
+
+🔍 Resultados principais:
+- Credenciais fracas foram comprometidas em poucos segundos
+- Serviços como FTP e SMB mostraram alta vulnerabilidade
+- A enumeração de usuários aumentou significativamente a eficiência do ataque
+
+🛡️ Impacto:
+Demonstra, na prática, a importância de políticas de segurança como MFA, bloqueio de tentativas e senhas fortes.
+
 ## 📝 Descrição do Projeto
-Este projeto documenta um laboratório de **Ethical Hacking** realizado em ambiente controlado. O objetivo foi testar a robustez de senhas e a vulnerabilidade de serviços comuns (FTP e SMB) contra ataques de força bruta utilizando a ferramenta **Medusa**.
+Este projeto demonstra, de forma prática e controlada, a execução de um ataque de força bruta utilizando a ferramenta **Medusa** no ambiente Kali Linux.
+
+O objetivo é simular cenários reais de teste de segurança (pentest), identificando vulnerabilidades relacionadas a autenticação fraca em serviços de rede.
+
+💡 A ferramenta Medusa é um brute-forcer paralelo e modular, capaz de testar múltiplas combinações de login simultaneamente em diversos protocolos como SSH, FTP e HTTP
 
 > **⚠️ Aviso Ético:** Este laboratório foi realizado exclusivamente para fins educacionais e de aprendizado em cibersegurança, utilizando máquinas próprias em rede isolada.
+> ❗ Nunca utilize técnicas de brute force sem autorização — isso é ilegal.
 
-## 🛠️ Stack Técnica
-* **OS:** Kali Linux (Atacante)
-* **Target:** Máquina com serviços FTP, SMB e formulários web (DVWA).
-* **Tool:** Medusa (Modular Exhaustive Disk User Password Guessing Sever).
-* **Wordlists:** Rockyou.txt e listas personalizadas.
+## 🎯 Objetivo
+- Demonstrar como ataques de força bruta funcionam
+- Entender vulnerabilidades em autenticação
+- Aplicar conceitos de segurança ofensiva (pentest)
+
+## 🛠️ Tecnologias e ferramentas
+- Kali Linux
+- Medusa
+- Wordlists (rockyou.txt ou similares)
+- SSH / FTP (ou outro serviço testado)
+
+## ⚙️ Como funciona
+
+### O ataque consiste em:
+- Definir o alvo (IP ou serviço)
+- Definir usuários e lista de senhas
+- Executar múltiplas tentativas de login simultaneamente
+- Identificar credenciais válidas
+
+👉 O Medusa realiza ataques paralelos, tornando o processo mais rápido ao testar várias combinações ao mesmo tempo
+
+## 💻 Exemplo de comando
+`medusa -h 192.168.0.10 -U users.txt -P passwords.txt -M ssh -t 8 -f`
+
+Parâmetros:
+- -h → alvo
+- -U → lista de usuários
+- -P → lista de senhas
+- -M → serviço (ssh, ftp, etc)
+- -t → número de threads
+- -f → parar ao encontrar sucesso
 
 ## 🚀 Cenários de Teste
 1. **Brute Force em FTP:** Tentativa de autenticação modular em servidor de arquivos.
